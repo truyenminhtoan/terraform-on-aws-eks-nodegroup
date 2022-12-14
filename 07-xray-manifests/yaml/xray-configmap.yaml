@@ -1,0 +1,5 @@
+TotalBufferSizeMB: 24
+Socket:
+  UDPAddress: "0.0.0.0:2000"
+  TCPAddress: "0.0.0.0:2000"
+Version: 2

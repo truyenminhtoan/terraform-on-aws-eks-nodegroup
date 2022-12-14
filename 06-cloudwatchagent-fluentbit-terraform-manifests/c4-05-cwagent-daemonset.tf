@@ -18,3 +18,4 @@ resource "kubectl_manifest" "cwagent_daemonset" {
       ]
     yaml_body = data.http.get_cwagent_daemonset.response_body
 }
+
