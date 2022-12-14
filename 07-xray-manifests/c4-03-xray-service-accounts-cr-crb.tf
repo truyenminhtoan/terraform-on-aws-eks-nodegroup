@@ -2,7 +2,7 @@
 
 # Datasource
 data "http" "get_xray_serviceaccount" {
-  url = "https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/k8s-deployment-manifest-templates/deployment-mode/daemonset/container-insights-monitoring/cwagent/cwagent-serviceaccount.yaml"
+  url = "https://raw.githubusercontent.com/truyenminhtoan/terraform-on-aws-eks-nodegroup/develop/07-xray-manifests/yaml/xray-serviceaccount.yaml"
   # Optional request headers
   request_headers = {
     Accept = "text/*"

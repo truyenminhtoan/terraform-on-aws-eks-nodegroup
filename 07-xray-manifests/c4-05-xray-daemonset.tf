@@ -2,7 +2,7 @@
 
 # Datasource
 data "http" "get_xray_daemonset" {
-  url = "https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/k8s-deployment-manifest-templates/deployment-mode/daemonset/container-insights-monitoring/cwagent/cwagent-daemonset.yaml"
+  url = "https://raw.githubusercontent.com/truyenminhtoan/terraform-on-aws-eks-nodegroup/develop/07-xray-manifests/yaml/xray-k8s-daemonset.yaml"
   # Optional request headers
   request_headers = {
     Accept = "text/*"
