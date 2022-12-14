@@ -37,3 +37,5 @@ VPC created on Wed May 18 15:23:01 IST 2022 and VPC ID: vpc-066022dce667f4726
 VPC created on Thu May 19 19:19:31 IST 2022 and VPC ID: vpc-093aa38c2bd56d3bc
 VPC created on Mon May 23 12:17:37 IST 2022 and VPC ID: vpc-062f89ea5d3e5e757
 VPC created on Tue May 24 09:16:11 IST 2022 and VPC ID: vpc-07c6d8fcbcf86f091
+VPC created on Wed Dec 14 08:58:19 +07 2022 and VPC ID: vpc-037d2af5de5f8ee74
+VPC created on Wed Dec 14 09:07:40 +07 2022 and VPC ID: vpc-0ba91274bf8148c8c
