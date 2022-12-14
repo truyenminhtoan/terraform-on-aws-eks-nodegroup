@@ -1,8 +1,16 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  labels:
+    app: xray-daemon
+  name: xray-daemon
+  namespace: default
+---
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: xray-daemon
-  namespace: amazon-xray
+  namespace: default
 spec:
   updateStrategy:
     type: RollingUpdate
@@ -43,21 +51,35 @@ spec:
             - name: config-volume
               mountPath: /aws/xray
               readOnly: true
-# ---
-# # k8s service definition for AWS X-Ray daemon headless service
-# apiVersion: v1
-# kind: Service
-# metadata:
-#   name: xray-service
-#   namespace: amazon-xray
-# spec:
-#   selector:
-#     app: xray-daemon
-#   clusterIP: None
-#   ports:
-#     - name: xray-ingest
-#       port: 2000
-#       protocol: UDP
-#     - name: xray-tcp
-#       port: 2000
-#       protocol: TCP
+---
+# Configuration for AWS X-Ray daemon
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: xray-config
+  namespace: default
+data:
+  config.yaml: |-
+    TotalBufferSizeMB: 24
+    Socket:
+      UDPAddress: "0.0.0.0:2000"
+      TCPAddress: "0.0.0.0:2000"
+    Version: 2
+---
+# k8s service definition for AWS X-Ray daemon headless service
+apiVersion: v1
+kind: Service
+metadata:
+  name: xray-service
+  namespace: default
+spec:
+  selector:
+    app: xray-daemon
+  clusterIP: None
+  ports:
+    - name: xray-ingest
+      port: 2000
+      protocol: UDP
+    - name: xray-tcp
+      port: 2000
+      protocol: TCP
