@@ -23,14 +23,14 @@ spec:
           image: truyenminhtoan/spring-boot-h2-aws-xray:1.0.4
           ports:
             - containerPort: 9500
-          imagePullPolicy: Always            
-          env:  
-            - name: AWS_XRAY_TRACING_NAME 
-              value: "spring-boot-h2"                
+          imagePullPolicy: Always
+          env:
+            - name: AWS_XRAY_TRACING_NAME
+              value: "spring-boot-h2"
             - name: AWS_XRAY_DAEMON_ADDRESS
-              value: "xray-service.default:2000"    
-            - name: AWS_XRAY_CONTEXT_MISSING 
-              value: "LOG_ERROR"  # Log an error and continue, Ideally RUNTIME_ERROR – Throw a runtime exception which is default option if not configured                                            
+              value: "xray-service.default:2000"
+            - name: AWS_XRAY_CONTEXT_MISSING
+              value: "LOG_ERROR" # Log an error and continue, Ideally RUNTIME_ERROR – Throw a runtime exception which is default option if not configured
           livenessProbe:
             exec:
               command:
@@ -44,4 +44,4 @@ spec:
               path: /api/health-status
               port: 9500
             initialDelaySeconds: 60
-            periodSeconds: 10          
+            periodSeconds: 10
