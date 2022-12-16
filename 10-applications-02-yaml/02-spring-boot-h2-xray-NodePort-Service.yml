@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: springboot-restapp-nodeport-service
+  labels:
+    app: springboot-restapp
+  annotations:
+  #Important Note:  Need to add health check path annotations in service level if we are planning to use multiple targets in a load balancer  
+    alb.ingress.kubernetes.io/healthcheck-path: /api/health-status
+spec:
+  type: NodePort
+  selector:
+    app: springboot-restapp
+  ports:
+  - port: 9500
+    targetPort: 9500
